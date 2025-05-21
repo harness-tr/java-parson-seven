@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-parson-seven
+  labels:
+    app: java-parson-seven
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-parson-seven
+  template:
+    metadata:
+      labels:
+        app: java-parson-seven
+    spec:
+      containers:
+        - name: java-parson-seven
+          image: docker.io/parsontodd/java-parson-seven:latest
+          ports:
+            - containerPort: 8080
